@@ -33,9 +33,12 @@ container:hover{
 }
 .card{
             margin: 20px;
-            border: 15px solid  white;
-            border-radius: 10px;
+            height: 70px;
+            width: 50px;
+            padding: 10px;
+            border: 1.5px solid  aqua;
             background: white;
+            border-width: 100%;
 }
 .main{
             width: 100%;
