@@ -24,7 +24,6 @@
 }
 #container{
   padding: 3px;
-  border: 1px solid aqua;
   width: 700px;
   overflow: hidden;
 }
@@ -33,14 +32,24 @@ container:hover{
 }
 .card{
             margin: 20px;
-            height: 70px;
-            width: 50px;
+            display: inline-block;
+            height: 400px;
+            min-width: 360px;
             padding: 10px;
-            border: 1.5px solid  aqua;
-            background: white;
-            border-width: 100%;
+            position: relative;
+            font-size: larger;
+            text-align: center;
+            font-family: monospace;
+}
+.p1{
+  padding-top: 50%;
 }
 .main{
-            width: 100%;
             display: inline-flex;
+            min-width: 100%;
+}
+.card:hover{
+  background-color: rgb(198, 233, 198);
+  border: 1px solid white;
+  border-color: orange;
 }
