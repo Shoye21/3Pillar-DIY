@@ -22,7 +22,7 @@ let tbody = document.createElement('tbody');
 table.appendChild(thead);
 table.appendChild(tbody);
 
-document.getElementById('body').appendChild(table);
+document.getElementById('body1').append(table);
 
 var dt=date1();
 
@@ -32,7 +32,6 @@ var body=document.getElementById("tag1");
 var time1=document.createElement("span");
 function addData(){
     var remo=document.createElement("button");
-    
     var tab=document.getElementById("tag1");
     var span1=document.createElement("br");
     var row=document.createElement("tr");
@@ -52,8 +51,8 @@ function addData(){
     data3.textContent=localStorage.getItem("Score");
     row.appendChild(data3);
     var remo=document.createElement("button");
-    var beta=document.createTextNode("Del");
-    remo.appendChild(beta);
+    // var beta=document.createTextNode("Del");
+    // remo.appendChild(beta);
     // remo.classList.add("btn btn-primary");
     data4.appendChild(remo);
     row.appendChild(data4);
