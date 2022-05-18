@@ -63,7 +63,7 @@ function addData(){
     
     // tab.appendChild(row);
     remo.setAttribute("class","rem");
-    remo.setAttribute("onclick", "bhagavo()")
+    remo.setAttribute("onmouseover", "bhagavo()")
     row.setAttribute('class','dell');
     tab.appendChild(row);
 }
