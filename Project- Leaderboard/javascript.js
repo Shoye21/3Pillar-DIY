@@ -33,6 +33,7 @@ var time1 = document.createElement("span");
 function addData() {
     // var remo = document.createElement("button");
     var addNum = document.createElement("button")
+    var subNum = document.createElement("button")
     var tab = document.getElementById("tag1");
     var span1 = document.createElement("br");
     var row = document.createElement("tr");
@@ -41,7 +42,7 @@ function addData() {
     var data3 = document.createElement("td");
     var data4 = document.createElement("td");
     data3.setAttribute("id", "change");
-    var data5 = document.createElement("td");
+    // var data5 = document.createElement("td");
     var datelo = localStorage.getItem("date");
 
     var dekho = localStorage.getItem("fname");
@@ -63,6 +64,12 @@ function addData() {
     row.appendChild(data4);
     var beta1 = document.createTextNode("+5");
     addNum.appendChild(beta1);
+    var y = row.insertCell(4);
+    y.appendChild(subNum);
+    // row.appendChild(data5);
+    var beta2 = document.createTextNode("-5")
+    subNum.appendChild(beta2);
+    
 
     row.style.height = "30px";
 
@@ -74,6 +81,7 @@ function addData() {
     addNum.setAttribute("onclick", "shift()")
     row.setAttribute('class', 'dell');
     tab.appendChild(row);
+    subNum.setAttribute("onclick", "addition()");
 
 }
 function storeItem() {
