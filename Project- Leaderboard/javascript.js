@@ -51,7 +51,7 @@ function addData(){
     data3.textContent=localStorage.getItem("Score");
     row.appendChild(data3);
     var remo=document.createElement("button");
-    // var beta=document.createTextNode("Del");
+    var beta=document.createTextNode("Del");
     // remo.appendChild(beta);
     // remo.classList.add("btn btn-primary");
     data4.appendChild(remo);
