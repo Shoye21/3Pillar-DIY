@@ -63,9 +63,10 @@ function addData(){
     
     // tab.appendChild(row);
     remo.setAttribute("class","rem");
-    remo.setAttribute("onmouseover", "bhagavo()")
+    remo.setAttribute("onmouseover", "send()")
     row.setAttribute('class','dell');
     tab.appendChild(row);
+    table.setAttribute("id","sort");
 }
 function storeItem(){
     localStorage.setItem("date",dt);
@@ -82,11 +83,43 @@ function press(){
         alert("Something went wrong");
     }
 }
-function bhagavo(){
+function send(){
     var current_tasks = document.querySelectorAll(".rem");
     for(var i=0; i<current_tasks.length; i++){
         current_tasks[i].onclick = function(){
             this.parentNode.parentNode.remove();
+        }
+    }
+}
+function sortTable() {
+    var table, i, x, y;
+    table = document.getElementById("sort");
+    var switching = true;
+
+    // Run loop until no switching is needed
+    while (switching) {
+        switching = false;
+        var rows = table.rows;
+
+        // Loop to go through all rows
+        for (i = 1; i < (rows.length - 1); i++) {
+            var Switch = false;
+
+            // Fetch 2 elements that need to be compared
+            x = rows[i].getElementsByTagName("td")[2];
+            y = rows[i + 1].getElementsByTagName("td")[2];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                {
+
+                // If yes, mark Switch as needed and break loop
+                Switch = true;
+                break;
+            }
+        }
+        if (Switch) {
+            // Function to switch rows and mark switch as completed
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
         }
     }
 }
