@@ -1,19 +1,19 @@
-var fname=document.getElementById("f-name");
-var lname=document.getElementById("l-name");
-var countryName=document.getElementById("country");
-var pScore=document.getElementById("p-score");
-function validationForm(){
-   if((fname.value===null &&lname.value===null) && (countryName.value===null && pScore.value===null)){
-       alert("please fill all the details");
-       return false;
+var fname = document.getElementById("f-name");
+var lname = document.getElementById("l-name");
+var countryName = document.getElementById("country");
+var pScore = document.getElementById("p-score");
+function validationForm() {
+    if ((fname.value === null && lname.value === null) && (countryName.value === null && pScore.value === null)) {
+        alert("please fill all the details");
+        return false;
+    }
+    else {
+        return true;
+    }
 }
-else{
-    return true;
-}
-}
-function date1(){
-var dt= Date();
-return dt.substring(3,21);
+function date1() {
+    var dt = Date();
+    return dt.substring(3, 21);
 }
 let table = document.createElement('table');
 let thead = document.createElement('thead');
@@ -24,76 +24,84 @@ table.appendChild(tbody);
 
 document.getElementById('body1').append(table);
 
-var dt=date1();
+var dt = date1();
 
-var body=document.getElementById("tag1");
+var body = document.getElementById("tag1");
 
- var name2=fname.value+" "+lname.value;
-var time1=document.createElement("span");
-function addData(){
-    var remo=document.createElement("button");
-    var tab=document.getElementById("tag1");
-    var span1=document.createElement("br");
-    var row=document.createElement("tr");
-    var data1=document.createElement("td");
-    var data2=document.createElement("td");
-    var data3=document.createElement("td");
-    var data4=document.createElement("td");
-    var datelo=localStorage.getItem("date");
-    
-    var dekho=localStorage.getItem("fname");
-    data1.textContent=dekho;
-    span1.textContent=datelo;
+var name2 = fname.value + " " + lname.value;
+var time1 = document.createElement("span");
+function addData() {
+    // var remo = document.createElement("button");
+    var addNum = document.createElement("button")
+    var tab = document.getElementById("tag1");
+    var span1 = document.createElement("br");
+    var row = document.createElement("tr");
+    var data1 = document.createElement("td");
+    var data2 = document.createElement("td");
+    var data3 = document.createElement("td");
+    var data4 = document.createElement("td");
+    data3.setAttribute("id", "change");
+    var data5 = document.createElement("td");
+    var datelo = localStorage.getItem("date");
+
+    var dekho = localStorage.getItem("fname");
+    data1.textContent = dekho;
+    span1.textContent = datelo;
     data1.appendChild(span1);
     row.appendChild(data1);
-    data2.textContent=localStorage.getItem("country");
+    data2.textContent = localStorage.getItem("country");
     row.appendChild(data2);
-    data3.textContent=localStorage.getItem("Score");
+    data3.textContent = localStorage.getItem("Score");
     row.appendChild(data3);
-    var remo=document.createElement("button");
-    var beta=document.createTextNode("Del");
-    // remo.appendChild(beta);
+    var remo = document.createElement("button");
+    var beta = document.createTextNode("Del");
+    remo.appendChild(beta);
     // remo.classList.add("btn btn-primary");
     data4.appendChild(remo);
+    var x = row.insertCell(3);
+    x.appendChild(addNum);
     row.appendChild(data4);
+    var beta1 = document.createTextNode("+5");
+    addNum.appendChild(beta1);
 
-    row.style.height="30px";
+    row.style.height = "30px";
 
-    row.style.backgroundColor="aqua";
-    
+    row.style.backgroundColor = "aqua";
+
     // tab.appendChild(row);
-    remo.setAttribute("class","rem");
-    remo.setAttribute("onmouseover", "send()")
-    row.setAttribute('class','dell');
+    remo.setAttribute("class", "rem");
+    remo.setAttribute("onmouseover", "send()");
+    addNum.setAttribute("onclick", "shift()")
+    row.setAttribute('class', 'dell');
     tab.appendChild(row);
-    table.setAttribute("id","sort");
+
 }
-function storeItem(){
-    localStorage.setItem("date",dt);
-    localStorage.setItem("fname",fname.value+" "+lname.value);
-    localStorage.setItem("country",countryName.value);
-    localStorage.setItem("Score",pScore.value);
+function storeItem() {
+    localStorage.setItem("date", dt);
+    localStorage.setItem("fname", fname.value + " " + lname.value);
+    localStorage.setItem("country", countryName.value);
+    localStorage.setItem("Score", pScore.value);
 }
-function press(){
-    if(validationForm()){
+function press() {
+    if (validationForm()) {
         storeItem();
         addData();
     }
-    else{
+    else {
         alert("Something went wrong");
     }
 }
-function send(){
+function send() {
     var current_tasks = document.querySelectorAll(".rem");
-    for(var i=0; i<current_tasks.length; i++){
-        current_tasks[i].onclick = function(){
+    for (var i = 0; i < current_tasks.length; i++) {
+        current_tasks[i].onclick = function () {
             this.parentNode.parentNode.remove();
         }
     }
 }
 function sortTable() {
     var table, i, x, y;
-    table = document.getElementById("sort");
+    table = document.getElementById("tag1");
     var switching = true;
 
     // Run loop until no switching is needed
@@ -106,10 +114,9 @@ function sortTable() {
             var Switch = false;
 
             // Fetch 2 elements that need to be compared
-            x = rows[i].getElementsByTagName("td")[2];
-            y = rows[i + 1].getElementsByTagName("td")[2];
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
-                {
+            x = rows[i].getElementsByTagName("td")[3];
+            y = rows[i + 1].getElementsByTagName("td")[3];
+            if (x.innerHTML > y.innerHTML) {
 
                 // If yes, mark Switch as needed and break loop
                 Switch = true;
@@ -122,6 +129,12 @@ function sortTable() {
             switching = true;
         }
     }
+}
+function shift() {
+    let score=localStorage.getItem("Score");
+    document.getElementById("change").innerHTML = Number(score)+5
+    localStorage.setItem("Score" , score);
+
 }
 
 
