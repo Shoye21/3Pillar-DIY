@@ -31,7 +31,6 @@ var body = document.getElementById("tag1");
 var name2 = fname.value + " " + lname.value;
 var time1 = document.createElement("span");
 function addData() {
-    // var remo = document.createElement("button");
     var addNum = document.createElement("button")
     var subNum = document.createElement("button")
     var tab = document.getElementById("tag1");
@@ -42,9 +41,7 @@ function addData() {
     var data3 = document.createElement("td");
     var data4 = document.createElement("td");
     data3.setAttribute("id", "change");
-    // var data5 = document.createElement("td");
     var datelo = localStorage.getItem("date");
-
     var dekho = localStorage.getItem("fname");
     data1.textContent = dekho;
     span1.textContent = datelo;
@@ -57,7 +54,6 @@ function addData() {
     var remo = document.createElement("button");
     var beta = document.createTextNode("Del");
     remo.appendChild(beta);
-    // remo.classList.add("btn btn-primary");
     data4.appendChild(remo);
     var x = row.insertCell(3);
     x.appendChild(addNum);
@@ -66,23 +62,16 @@ function addData() {
     addNum.appendChild(beta1);
     var y = row.insertCell(4);
     y.appendChild(subNum);
-    // row.appendChild(data5);
     var beta2 = document.createTextNode("-5")
     subNum.appendChild(beta2);
-    
-
     row.style.height = "30px";
-
     row.style.backgroundColor = "aqua";
-
-    // tab.appendChild(row);
     remo.setAttribute("class", "rem");
     remo.setAttribute("onmouseover", "send()");
     addNum.setAttribute("onclick", "shift()")
     row.setAttribute('class', 'dell');
     tab.appendChild(row);
-    subNum.setAttribute("onclick", "addition()");
-
+    subNum.setAttribute("onclick", "unShift()");
 }
 function storeItem() {
     localStorage.setItem("date", dt);
@@ -111,38 +100,35 @@ function sortTable() {
     var table, i, x, y;
     table = document.getElementById("tag1");
     var switching = true;
-
-    // Run loop until no switching is needed
     while (switching) {
         switching = false;
         var rows = table.rows;
-
-        // Loop to go through all rows
         for (i = 1; i < (rows.length - 1); i++) {
             var Switch = false;
-
-            // Fetch 2 elements that need to be compared
             x = rows[i].getElementsByTagName("td")[3];
             y = rows[i + 1].getElementsByTagName("td")[3];
             if (x.innerHTML > y.innerHTML) {
-
-                // If yes, mark Switch as needed and break loop
                 Switch = true;
                 break;
             }
         }
         if (Switch) {
-            // Function to switch rows and mark switch as completed
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
         }
     }
 }
 function shift() {
-    let score=localStorage.getItem("Score");
-    document.getElementById("change").innerHTML = Number(score)+5
-    localStorage.setItem("Score" , score);
+    let score = localStorage.getItem("Score");
+    document.getElementById("change").innerHTML= Number(score) + 5
+    localStorage.setItem("Score" , document.getElementById("change").innerHTML) = Number(score) + 5
+    localStorage.setItem("Score", score);
+}
+function unShift() {
+    let score = localStorage.getItem("Score");
+    document.getElementById("change").innerHTML= Number(score) - 5
+    localStorage.setItem("Score" , document.getElementById("change").innerHTML) = Number(score) - 5
+    localStorage.setItem("Score", score);
 
 }
-
 
