@@ -3,8 +3,7 @@ var lname = document.getElementById("l-name");
 var countryName = document.getElementById("country");
 var pScore = document.getElementById("p-score");
 function validationForm() {
-    if ((fname.value === null && lname.value === null) && (countryName.value === null && pScore.value === null)) {
-        alert("please fill all the details");
+    if ((fname.value === null || lname.value === null) || (countryName.value === null || pScore.value === null)) {
         return false;
     }
     else {
@@ -40,9 +39,9 @@ function addData() {
     var data2 = document.createElement("td");
     var data3 = document.createElement("td");
     var data4 = document.createElement("td");
-    data3.setAttribute("id", "change");
     var datelo = localStorage.getItem("date");
     var dekho = localStorage.getItem("fname");
+    data3.setAttribute("id", "change");
     data1.textContent = dekho;
     span1.textContent = datelo;
     data1.appendChild(span1);
@@ -107,7 +106,8 @@ function sortTable() {
             var Switch = false;
             x = rows[i].getElementsByTagName("td")[3];
             y = rows[i + 1].getElementsByTagName("td")[3];
-            if (x.innerHTML > y.innerHTML) {
+            if (x.innerHTML > y.innerHTML) 
+            {
                 Switch = true;
                 break;
             }
