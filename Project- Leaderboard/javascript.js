@@ -3,8 +3,10 @@ var lname = document.getElementById("l-name");
 var countryName = document.getElementById("country");
 var pScore = document.getElementById("p-score");
 function validationForm() {
-    if ((fname.value === null || lname.value === null) || (countryName.value === null || pScore.value === null)) {
+    if ((fname.value =="" || lname.value =="") || countryName.value =="" || pScore.value =="") {
+        // alert ("Bro wtf");
         return false;
+        
     }
     else {
         return true;
@@ -41,7 +43,7 @@ function addData() {
     var data4 = document.createElement("td");
     var datelo = localStorage.getItem("date");
     var dekho = localStorage.getItem("fname");
-    data3.setAttribute("id", "change");
+    data3.setAttribute("class", "change");
     data1.textContent = dekho;
     span1.textContent = datelo;
     data1.appendChild(span1);
@@ -84,7 +86,7 @@ function press() {
         addData();
     }
     else {
-        alert("Something went wrong");
+        alert("Fill all the details");
     }
 }
 function send() {
@@ -120,15 +122,17 @@ function sortTable() {
 }
 function shift() {
     let score = localStorage.getItem("Score");
-    document.getElementById("change").innerHTML= Number(score) + 5
-    localStorage.setItem("Score" , document.getElementById("change").innerHTML) = Number(score) + 5
+    document.getElementsByClassName("change").innerHTML= (Number(score) + 5)
+    localStorage.setItem("Score" , document.getElementsByClassName("change").innerHTML) = Number(score) + 5
     localStorage.setItem("Score", score);
 }
 function unShift() {
     let score = localStorage.getItem("Score");
-    document.getElementById("change").innerHTML= Number(score) - 5
-    localStorage.setItem("Score" , document.getElementById("change").innerHTML) = Number(score) - 5
+    document.getElementsByClassName("change").innerHTML= Number(score) - 5
+    localStorage.setItem("Score" , document.getElementsByClassName("change").innerHTML) = Number(score) - 5
     localStorage.setItem("Score", score);
 
 }
-
+function clear(){
+    document.getElementsByClassName("text-area").reset();
+}
