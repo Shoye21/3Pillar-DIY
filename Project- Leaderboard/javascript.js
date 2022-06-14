@@ -3,10 +3,10 @@ var lname = document.getElementById("l-name");
 var countryName = document.getElementById("country");
 var pScore = document.getElementById("p-score");
 function validationForm() {
-    if ((fname.value =="" || lname.value =="") || countryName.value =="" || pScore.value =="") {
+    if ((fname.value == "" || lname.value == "") || countryName.value == "" || pScore.value == "") {
         // alert ("Bro wtf");
         return false;
-        
+
     }
     else {
         return true;
@@ -43,7 +43,7 @@ function addData() {
     var data4 = document.createElement("td");
     var datelo = localStorage.getItem("date");
     var dekho = localStorage.getItem("fname");
-    data3.setAttribute("class", "change");
+    data3.setAttribute("id", "change");
     data1.textContent = dekho;
     span1.textContent = datelo;
     data1.appendChild(span1);
@@ -69,7 +69,7 @@ function addData() {
     row.style.backgroundColor = "aqua";
     remo.setAttribute("class", "rem");
     remo.setAttribute("onmouseover", "send()");
-    addNum.setAttribute("onclick", "shift()")
+    addNum.setAttribute("onclick", "shift(this)")
     row.setAttribute('class', 'dell');
     tab.appendChild(row);
     subNum.setAttribute("onclick", "unShift()");
@@ -97,42 +97,53 @@ function send() {
         }
     }
 }
-function sortTable() {
-    var table, i, x, y;
-    table = document.getElementById("tag1");
-    var switching = true;
+function sortTable() {// console.log("sorting");
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("myTableData");
+    // console.log(table);
+    switching = true;
+    /*Make a loop that will continue until
+  no switching has been done:*/
     while (switching) {
-        switching = false;
-        var rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            var Switch = false;
-            x = rows[i].getElementsByTagName("td")[3];
-            y = rows[i + 1].getElementsByTagName("td")[3];
-            if (x.innerHTML > y.innerHTML) 
-            {
-                Switch = true;
-                break;
-            }
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.row;
+      // console.log(rows);
+      /*Loop through all table rows (except the
+    first, which contains table headers):*/
+      for (i = 1; i < rows.length - 1; i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[2];
+        y = rows[i + 1].getElementsByTagName("td")[2];
+        console.log(x, y);
+        //check if the two rows should switch place:
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
         }
-        if (Switch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
     }
-}
+  }
 function shift() {
-    let score = localStorage.getItem("Score");
-    document.getElementsByClassName("change").innerHTML= (Number(score) + 5)
-    localStorage.setItem("Score" , document.getElementsByClassName("change").innerHTML) = Number(score) + 5
-    localStorage.setItem("Score", score);
+    var temp1 = document.getElementById("change").innerHTML;
+    document.getElementsByTagName("td")[2].innerHTML = Number(temp1) + 5;
+    sortTable();
 }
 function unShift() {
-    let score = localStorage.getItem("Score");
-    document.getElementsByClassName("change").innerHTML= Number(score) - 5
-    localStorage.setItem("Score" , document.getElementsByClassName("change").innerHTML) = Number(score) - 5
-    localStorage.setItem("Score", score);
-
+    var temp2 = document.getElementById("change").innerHTML;
+    document.getElementsByTagName("td")[2].innerHTML = temp2 - 5;
+    sortTable();
 }
-function clear(){
+function clear() {
     document.getElementsByClassName("text-area").reset();
 }
