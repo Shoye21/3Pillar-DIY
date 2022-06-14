@@ -14,4 +14,20 @@ if(parseInt('9.8') == 10){
 else{
     console.log("False")
 }
+console.log(4>3)
+console.log(4>=3)
+console.log(4<3)
+console.log(4<=3)
+console.log(4==4)
+console.log(4===4)
+console.log(4!=4)
+console.log(4!==4)
+console.log(4!='4')
+console.log(4=='4')
+console.log(4==='4')
+let x = 'python'.length
+let y = 'jargon'.length
+console.log(x !== y)
+
+
 
