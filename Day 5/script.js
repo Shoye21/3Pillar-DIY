@@ -57,4 +57,4 @@ itCompanies.slice(Math.floor(itCompanies.length / 2), 1);
 itCompanies.shift();
 console.log(itCompanies.splice(Math.floor(itCompanies.length / 2), 1))
 itCompanies.length = 0;
-
+console.log(itCompanies)
