@@ -1,3 +1,4 @@
+import * as fetch from 'node-fetch';
 let countries;
 const url = 'https://restcountries.eu/rest/v2/all'
 const fetchData = async () => {
