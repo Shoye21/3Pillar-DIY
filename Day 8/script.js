@@ -23,3 +23,4 @@ dog.getDogInfo = function () {
 }
 dog.getDogInfo()
 
+//The end

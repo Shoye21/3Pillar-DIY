@@ -109,3 +109,5 @@ function findMax(a,b,c){
     console.log(Math.max(Math.max(a,b) , Math.max(b,c)))
 }
 findMax(8,2,5)
+
+//The end

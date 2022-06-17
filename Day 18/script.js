@@ -16,3 +16,5 @@ const fetchData = async () => {
 }
 console.log('async and await')
 fetchData();
+
+//The end

@@ -36,3 +36,5 @@ if(number % 2 == 0){
 else{
     console.log("the number is odd")
 }
+
+//The end

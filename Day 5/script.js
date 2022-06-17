@@ -34,12 +34,12 @@ for (let i in itCompanies){
 
 console.log(itCompanies.join(',') +  " are big IT companies")
 
-// let searchItComp = prompt("enter company to search");
-// if (itCompanies.includes(searchItComp)) {
-//     console.log(searchItComp)
-// } else {
-//     console.log("company not found")
-// }
+let searchItComp = prompt("enter company to search");
+if (itCompanies.includes(searchItComp)) {
+    console.log(searchItComp)
+} else {
+    console.log("company not found")
+}
 
 let temp = []
 for (let i = 0; i < itCompanies.length; i++) {
@@ -58,3 +58,6 @@ itCompanies.shift();
 console.log(itCompanies.splice(Math.floor(itCompanies.length / 2), 1))
 itCompanies.length = 0;
 console.log(itCompanies)
+
+
+//The end
