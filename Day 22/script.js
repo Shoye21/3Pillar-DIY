@@ -23,7 +23,7 @@ for (let i = 0; i <= 100; i++) {
         box.style.width = "120px";
         box.style.height = "90px"
         box.style.backgroundColor = "red"
-        box.style.margin = "8px";
+        box.style.margin = "4px";
         div.appendChild(box)
     }
     else if(i%2 == 0 && !isPrime(i)){
@@ -32,7 +32,7 @@ for (let i = 0; i <= 100; i++) {
         box.style.width = "120px";
         box.style.height = "90px"
         box.style.backgroundColor = "aqua"
-        box.style.margin = "8px";
+        box.style.margin = "4px";
         div.appendChild(box)
     }
     else if (i % 2 != 0 && isPrime(i)) {
@@ -41,7 +41,7 @@ for (let i = 0; i <= 100; i++) {
         box.style.width = "120px";
         box.style.height = "90px"
         box.style.backgroundColor = "red"
-        box.style.margin = "8px";
+        box.style.margin = "4px";
         div.appendChild(box)
     }
     else if(i%2 != 0 && !isPrime(i)){
@@ -50,7 +50,7 @@ for (let i = 0; i <= 100; i++) {
         box.style.width = "120px";
         box.style.height = "90px"
         box.style.backgroundColor = "yellow"
-        box.style.margin = "8px";
+        box.style.margin = "4px";
         div.appendChild(box)
     }
     else if(isPrime(i)) {
@@ -59,7 +59,7 @@ for (let i = 0; i <= 100; i++) {
         box.style.width = "120px";
         box.style.height = "90px"
         box.style.backgroundColor = "red"
-        box.style.margin = "8px";
+        box.style.margin = "4px";
         div.appendChild(box)
     }
     
