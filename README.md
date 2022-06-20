@@ -1,4 +1,4 @@
-This DIY project was made with sheer focus and determination. Some things might not be up to the mark or as the organisation wanted, but whatever was done, is done with honesty and hardwork :)
+This DIY project was made with sheer focus and determination. Some things might not be up to the mark or as the organization wanted, but whatever was done, is done with honesty and hard work :)
 
 Following are the links attached that will take you directly to the pages. Feedbacks are happily welcome- it will be an honor for me.
 
